@@ -12,7 +12,7 @@
 <body>
 	<div align="center">
 		<h1>New/Edit Profile</h1>
-		<form:form action="saveProfile" method="post"
+		<form:form action="/saveProfile" method="post"
 			modelAttribute="Profile">
 			<table>
 				<form:hidden path="id" />

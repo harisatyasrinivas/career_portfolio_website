@@ -1,6 +1,5 @@
 package com.satya.career.portfolio.models;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -33,7 +32,7 @@ public class Profile {
 	@Column(name="MOBILE",unique=true,nullable = false,length=10)
 	private String mobileNumber;
 	
-	@OneToMany(mappedBy = "profile",cascade = CascadeType.ALL,orphanRemoval = true)
+	@OneToMany(mappedBy = "profile",cascade = CascadeType.ALL,orphanRemoval = true)	
 	private List<Education> education;
 	
 //	@Column(name="PROF_WEBSITES")
@@ -101,6 +100,14 @@ public class Profile {
 	public void setAbout(String about) {
 		this.about = about;
 	}
+
+	@Override
+	public String toString() {
+		return "Profile [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", mobileNumber=" + mobileNumber + ", education=" + education + ", about=" + about + "]";
+	}
+	
+	
 	
 		
 	}

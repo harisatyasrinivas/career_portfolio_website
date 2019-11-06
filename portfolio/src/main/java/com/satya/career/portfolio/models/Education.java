@@ -9,7 +9,7 @@ import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -25,16 +25,25 @@ public class Education {
 	private String degree;
 	@Column(name="SCHOOL",nullable = false)
 	private String school;
-	@Column(name="FROM_DATE",nullable = false)
-	private Date fromDate;
-	@Column(name="TO_DATE",nullable = false)
-	private Date toDate;
+	/*
+	 * @Column(name="FROM_DATE",nullable = false) private Date fromDate;
+	 * 
+	 * @Column(name="TO_DATE",nullable = false) private Date toDate;
+	 */
 	@Column(name="COUNTRY",nullable = false)
 	private String country;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinTable(name="PROFILE_ID",foreignKey = @ForeignKey(foreignKeyDefinition = "PROFILE_ID"))
+	@JoinColumn(name="PROFILE_ID")
 	private Profile profile;
+	
+	
+
+	@Override
+	public String toString() {
+		return "Education [id=" + id + ", degree=" + degree + ", school=" + school + ", country=" + country
+				+ ", profile=" + profile + "]";
+	}
 
 	public long getId() {
 		return id;
@@ -60,22 +69,7 @@ public class Education {
 		this.school = school;
 	}
 
-	public Date getFromDate() {
-		return fromDate;
-	}
-
-	public void setFromDate(Date fromDate) {
-		this.fromDate = fromDate;
-	}
-
-	public Date getToDate() {
-		return toDate;
-	}
-
-	public void setToDate(Date toDate) {
-		this.toDate = toDate;
-	}
-
+	
 	public String getCountry() {
 		return country;
 	}

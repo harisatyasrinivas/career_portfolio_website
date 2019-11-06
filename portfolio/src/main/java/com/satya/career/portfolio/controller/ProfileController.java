@@ -36,11 +36,8 @@ public class ProfileController {
 	}
 	
 	@RequestMapping(value = "/",method = RequestMethod.GET)
-	public ModelAndView listEmployee(HttpServletRequest request) {
-		int profileId = Integer.parseInt(request.getParameter("id"));
-		Profile profile = profileService.getProfile(profileId);
-		ModelAndView model = new ModelAndView("home");
-		model.addObject("Profile", profile);
+	public ModelAndView home(ModelAndView model) {;
+		model.setViewName("home");
 		return model;
 	}
 

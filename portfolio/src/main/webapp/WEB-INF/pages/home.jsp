@@ -6,35 +6,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Employee Management Screen</title>
+<title>Profile Creation Portal</title>
 </head>
 <body>
-	<div align="center">
-		<h1>Employee List</h1>
-		<h3>
-			<a href="newEmployee">New Employee</a>
-		</h3>
-		<table border="1">
+		<h2>
+			<a href="profile?id=100">Profile Viewer</a>
+			<a href="registerProfile">Create Profile</a>
+		</h2>
 
-			<th>Name</th>
-			<th>Email</th>
-			<th>Address</th>
-			<th>Telephone</th>
-			<th>Action</th>
-
-			
-				<tr>
-
-					<td>${employee.name}</td>
-					<td>${employee.email}</td>
-					<td>${employee.address}</td>
-					<td>${employee.telephone}</td>
-					<td><a href="editProfile?id=${employee.id}">Edit</a> <a
-						href="deleteProfile?id=${employee.id}">Delete</a></td>
-
-				</tr>
-			
-		</table>
-	</div>
 </body>
 </html>
