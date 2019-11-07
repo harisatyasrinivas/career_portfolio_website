@@ -16,7 +16,7 @@ public class EducationDaoImpl implements EducationDao {
 
 	@Override
 	public void addEducationProfile(long profileId, Education education) {
-		
+
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(education);
 
@@ -28,7 +28,7 @@ public class EducationDaoImpl implements EducationDao {
 
 	@Override
 	public Education getEducationProfile(long id) {
-		return sessionFactory.getCurrentSession().get(Education.class,id);
+		return sessionFactory.getCurrentSession().get(Education.class, id);
 	}
 
 	@Override
@@ -40,11 +40,10 @@ public class EducationDaoImpl implements EducationDao {
 	@Override
 	public void deleteEducationProfile(long id) {
 		Education education = (Education) sessionFactory.getCurrentSession().get(Education.class, id);
-		//Validation 
-		if (education != null)
-		{
+		// Validation
+		if (education != null) {
 			this.sessionFactory.getCurrentSession().delete(education);
-	    }
+		}
 	}
-	
+
 }

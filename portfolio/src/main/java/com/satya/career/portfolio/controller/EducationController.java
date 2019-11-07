@@ -13,15 +13,28 @@ import org.springframework.web.servlet.ModelAndView;
 import com.satya.career.portfolio.models.Education;
 import com.satya.career.portfolio.services.EducationService;
 
+@Controller
+@RequestMapping("/profile/education")
 public class EducationController {
-	
-	@Controller
-	@RequestMapping("/profile/education")
-	public class AddressController {
-		
+			
 		@Autowired
 		private EducationService educationService;
+		
+		public EducationController() {
+			System.out.println("EducationController() started executing");
+		}
+		
+		@RequestMapping(value = "/info",method = RequestMethod.GET)
+		public ModelAndView education(HttpServletRequest request) {
+			int educationId = Integer.parseInt(request.getParameter("id"));
+			Education education = educationService.getEducationProfile(educationId);
+			ModelAndView model = new ModelAndView();
+			model.addObject("Education", education);
+			model.setViewName("education");
+			return model;
 			
+		}
+		
 		@RequestMapping(value = "/addEducation", method = RequestMethod.GET)
 		public ModelAndView addEducation(ModelAndView model) {
 			Education education = new Education();
@@ -59,5 +72,3 @@ public class EducationController {
 
 	}
 
-
-}

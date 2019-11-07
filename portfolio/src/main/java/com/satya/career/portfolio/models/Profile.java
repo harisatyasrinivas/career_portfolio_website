@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -32,26 +33,20 @@ public class Profile {
 	@Column(name="MOBILE",unique=true,nullable = false,length=10)
 	private String mobileNumber;
 	
-	@OneToMany(mappedBy = "profile",cascade = CascadeType.ALL,orphanRemoval = true)	
-	private List<Education> education;
-	
-//	@Column(name="PROF_WEBSITES")
-//	private ProfWebsites profWebsites;
-//	
-//	@Column(name="ADDRESS")
-//	private Address address;
-	
 	@Column(name="ABOUT")
 	private String about;
 	
+	@OneToMany(mappedBy = "profile",cascade = CascadeType.ALL,orphanRemoval = true)	
+	private List<Education> education;
 	
-	public List<Education> getEducation() {
-		return education;
-	}
-
-	public void setEducation(List<Education> education) {
-		this.education = education;
-	}
+	@OneToOne(mappedBy = "profile", cascade = CascadeType.ALL,orphanRemoval = true)
+	private Address address;
+	
+	@OneToMany(mappedBy = "profile",cascade = CascadeType.ALL,orphanRemoval = true)	
+	private List<ProfWebsites> profWebsites;	
+	
+	@OneToMany(mappedBy = "profile",cascade = CascadeType.ALL,orphanRemoval = true)	
+	private List<WorkExp> workExp;
 
 	public long getId() {
 		return id;
@@ -101,13 +96,38 @@ public class Profile {
 		this.about = about;
 	}
 
-	@Override
-	public String toString() {
-		return "Profile [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", mobileNumber=" + mobileNumber + ", education=" + education + ", about=" + about + "]";
+	public List<Education> getEducation() {
+		return education;
+	}
+
+	public void setEducation(List<Education> education) {
+		this.education = education;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public List<ProfWebsites> getProfWebsites() {
+		return profWebsites;
+	}
+
+	public void setProfWebsites(List<ProfWebsites> profWebsites) {
+		this.profWebsites = profWebsites;
+	}
+
+	public List<WorkExp> getWorkExp() {
+		return workExp;
+	}
+
+	public void setWorkExp(List<WorkExp> workExp) {
+		this.workExp = workExp;
 	}
 	
 	
-	
-		
-	}
+
+}
