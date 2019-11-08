@@ -27,8 +27,7 @@ public class Education {
 	@Column(name = "DEGREE", nullable = false)
 	private String degree;
 	@Column(name = "SCHOOL", nullable = false)
-	private String school;	
-	
+	private String school;		
 	@Column(name = "FROM_DATE", nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date fromDate;
@@ -39,7 +38,7 @@ public class Education {
 	
 	@Column(name = "COUNTRY", nullable = false)
 	private String country;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "PROFILE_ID")
 	private Profile profile;
 	public long getId() {

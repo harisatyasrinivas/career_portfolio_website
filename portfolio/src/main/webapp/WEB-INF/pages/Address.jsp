@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <html lang="en">
 <head>
 <title>Portfolio</title>
@@ -69,19 +73,18 @@ footer.footer {
 				<li class="nav-link text-light font-weight-bold px-3"><a
 					class="nav-link" href="#">Skills</a></li>
 				<li class="nav-link text-light font-weight-bold px-3"><a
-					class="nav-link nav-link active" href="#">Education</a></li>
+					class="nav-link " href="education/info?id=100">Education</a></li>
 				<li class="nav-link text-light font-weight-bold px-3"><a
-					class="nav-link" href="#">Contact</a></li>
+					class="nav-link nav-link active" href="contact/info?id=100">Contact</a></li>
 			</ul>
 		</div>
 	</nav>
 	
 <div class="container">
-			<p>${Education.degree}</p>
+			<h2>${Address.addressLine}</h2>
+			<h2>${Address.state}</h2>
+			<h2>${Address.province}</h2>
 		</div>
-
-	
-
 
 	<footer class="footer">
 		<div class="container">

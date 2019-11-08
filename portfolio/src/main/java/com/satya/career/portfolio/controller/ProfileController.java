@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.satya.career.portfolio.models.Education;
 import com.satya.career.portfolio.models.Profile;
 import com.satya.career.portfolio.services.ProfileService;
 
@@ -24,6 +25,18 @@ public class ProfileController {
 
 	public ProfileController() {
 		System.out.println("ProfileController() started executing");
+	}
+	
+	//read data from database 
+	@RequestMapping(value = "/info",method = RequestMethod.GET)
+	public ModelAndView education(HttpServletRequest request) {		
+		int profileId = Integer.parseInt(request.getParameter("id"));
+		Profile profile = profileService.getProfile(profileId);
+		ModelAndView model = new ModelAndView();
+		model.addObject("Profile", profile);
+		model.setViewName("profile");
+		return model;
+		
 	}
 
 	// display form for user registration

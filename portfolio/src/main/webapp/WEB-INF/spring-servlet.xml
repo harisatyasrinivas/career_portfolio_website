@@ -30,14 +30,14 @@
 	<mvc:resources mapping="/resources/**" location="/resources/theme1/" />
 	
 	<!-- support for html page loading-->
-	<mvc:default-servlet-handler />
+<!-- 	<mvc:default-servlet-handler /> -->
 
 	<!-- View Resolver Looks for HTML pages based on names in the below specified 
 		folder -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/pages/" />
-		<property name="suffix" value=".html" />
+		<property name="suffix" value=".jsp" />
 	</bean>
 
  	<!-- DataSource creation and injecting all the database properties from application.properties -->

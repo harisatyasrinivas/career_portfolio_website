@@ -12,7 +12,7 @@ import com.satya.career.portfolio.models.Profile;
 public class EducationDaoImpl implements EducationDao {
 
 	@Autowired
-	SessionFactory sessionFactory;
+	private SessionFactory sessionFactory;
 
 	@Override
 	public void addEducationProfile(long profileId, Education education) {

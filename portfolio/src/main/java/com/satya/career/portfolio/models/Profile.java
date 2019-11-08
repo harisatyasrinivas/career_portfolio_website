@@ -1,5 +1,6 @@
 package com.satya.career.portfolio.models;
 
+import java.sql.Blob;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -8,44 +9,53 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="PROFILE")
+@Table(name = "PROFILE")
 public class Profile {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)	
-	@Column(name="PROFILE_ID",updatable = false, nullable = false)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@Column(name = "PROFILE_ID", updatable = false, nullable = false)
 	private long id;
-	
-	@Column(name="FIRST_NAME",nullable = false)
+
+	@Column(name = "PROFILE_PIC")
+	private Blob profilePic;
+
+	@Column(name = "FIRST_NAME", nullable = false)
 	private String firstName;
-	
-	@Column(name="LAST_NAME",nullable = false)
+
+	@Column(name = "LAST_NAME", nullable = false)
 	private String lastName;
-	
-	@Column(name="EMAIL",unique=true,nullable = false)
+
+	@Column(name = "EMAIL", unique = true, nullable = false)
 	private String email;
-	
-	@Column(name="MOBILE",unique=true,nullable = false,length=10)
+
+	@Column(name = "MOBILE", unique = true, nullable = false, length = 10)
 	private String mobileNumber;
-	
-	@Column(name="ABOUT")
-	private String about;
-	
-	@OneToMany(mappedBy = "profile",cascade = CascadeType.ALL,orphanRemoval = true)	
+
+	@Lob
+	@Column(name = "STATUS")
+	private String status;
+
+	@Lob
+	@Column(name = "SUMMARY")
+	private String summary;
+
+	@OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Education> education;
-	
-	@OneToOne(mappedBy = "profile", cascade = CascadeType.ALL,orphanRemoval = true)
+
+	@OneToOne(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true)
 	private Address address;
-	
-	@OneToMany(mappedBy = "profile",cascade = CascadeType.ALL,orphanRemoval = true)	
-	private List<ProfWebsites> profWebsites;	
-	
-	@OneToMany(mappedBy = "profile",cascade = CascadeType.ALL,orphanRemoval = true)	
+
+	@OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<ProfWebsites> profWebsites;
+
+	@OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<WorkExp> workExp;
 
 	public long getId() {
@@ -54,6 +64,14 @@ public class Profile {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public Blob getProfilePic() {
+		return profilePic;
+	}
+
+	public void setProfilePic(Blob profilePic) {
+		this.profilePic = profilePic;
 	}
 
 	public String getFirstName() {
@@ -88,12 +106,20 @@ public class Profile {
 		this.mobileNumber = mobileNumber;
 	}
 
-	public String getAbout() {
-		return about;
+	public String getStatus() {
+		return status;
 	}
 
-	public void setAbout(String about) {
-		this.about = about;
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
 	}
 
 	public List<Education> getEducation() {
@@ -127,7 +153,5 @@ public class Profile {
 	public void setWorkExp(List<WorkExp> workExp) {
 		this.workExp = workExp;
 	}
-	
-	
 
 }

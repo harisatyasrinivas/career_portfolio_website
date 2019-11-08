@@ -11,9 +11,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -27,19 +30,21 @@ public class Project {
 	private long id;
 	@Column(name = "PROJECT_NAME")
 	private String projectName;
-	@DateTimeFormat(pattern = "MM/dd/yyyy")
+	@Temporal(TemporalType.DATE)
 	@Column(name = "FROM_DATE")
 	private Date fromDate;
-	@DateTimeFormat(pattern = "MM/dd/yyyy")
+	@Temporal(TemporalType.DATE)
 	@Column(name = "TO_DATE")
 	private Date ToDate;
+	@Lob
 	@Column(name = "PROJECT_DESC")
 	private String desc;
+	@Lob
 	@Column(name = "PROJECT_TASKS")
 	private String tasks;
 	@OneToMany(mappedBy = "project",cascade = CascadeType.ALL,orphanRemoval = true)
 	private List<Skill> skills;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "WORKEXP_ID")
 	private WorkExp workExp;
 	public long getId() {

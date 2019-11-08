@@ -3,6 +3,7 @@ package com.satya.career.portfolio.models;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -14,6 +15,7 @@ public class Address {
 	@Id
 	@Column(name="ID")
 	private Long id;
+	@Lob
 	@Column(name="ADDRESS_LINE")
 	private String addressLine;
 	@Column(name="STATE")
@@ -66,8 +68,5 @@ public class Address {
 		return "Address [id=" + id + ", addressLine=" + addressLine + ", state=" + state + ", province=" + province
 				+ ", zipcode=" + zipcode + ", profile=" + profile + "]";
 	}
-	
-	
-
-	
+		
 }

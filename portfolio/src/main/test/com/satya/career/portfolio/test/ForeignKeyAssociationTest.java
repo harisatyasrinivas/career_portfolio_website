@@ -23,7 +23,7 @@ public class ForeignKeyAssociationTest {
 		profile1.setFirstName("test");
 		profile1.setLastName("testlast");
 		profile1.setMobileNumber("123456789");
-		profile1.setAbout("hello this is a test case run");
+		
 
 		edu1.setCountry("India");
 		edu1.setDegree("masters");

@@ -22,7 +22,7 @@ public class ProfWebsites {
 	private String webName;
 	@Column(name = "WEBSITE_URL")
 	private String webUrl;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "PROFILE_ID")
 	private Profile profile;
 	public long getId() {

@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -29,15 +31,15 @@ public class WorkExp {
 	private String company;
 	@Column(name = "ROLE")
 	private String role;
-	@DateTimeFormat(pattern = "MM/dd/yyyy")
+	@Temporal(TemporalType.DATE)
 	@Column(name = "FROM_DATE")
 	private Date fromDate;
-	@DateTimeFormat(pattern = "MM/dd/yyyy")
+	@Temporal(TemporalType.DATE)
 	@Column(name = "TO_DATE")
 	private Date ToDate;
 	@OneToMany(mappedBy = "workExp",cascade = CascadeType.ALL,orphanRemoval = true)
 	private List<Project> projects;
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "PROFILE_ID")
 	private Profile profile;
 	public long getId() {
