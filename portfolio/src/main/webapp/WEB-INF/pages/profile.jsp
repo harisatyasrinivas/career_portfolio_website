@@ -117,7 +117,7 @@ footer.footer {
 	<br>
 	<br>
 	<br>
-
+</body>
 
 	<footer class="footer">
 	<div class="container">
@@ -125,5 +125,5 @@ footer.footer {
 	</div>
 	</footer>
 
-</body>
+
 </html>

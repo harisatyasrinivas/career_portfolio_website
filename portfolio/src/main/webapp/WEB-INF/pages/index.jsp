@@ -54,8 +54,8 @@ footer.footer {
 <body>
 
 	<nav class="navbar navbar-expand-sm navbar-light">
-		<a class="navbar-brand" href="#"> <img
-			src="img/Portfolio_Logo.jpg" width="30" height="30"
+		<a class="navbar-brand" href="#">
+		 <img src="${pageContext.request.contextPath}/resources/theme1/img/Portfolio_Logo.jpg" width="30" height="30"
 			class="d-inline-block align-top" alt="P"> Portfolio
 		</a>
 

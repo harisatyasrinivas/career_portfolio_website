@@ -27,7 +27,7 @@
 	<mvc:annotation-driven />
 
 	<!-- Resource location to load JS, CSS, Images etc -->
-	<mvc:resources mapping="/resources/**" location="/resources/theme1/" />
+	<mvc:resources mapping="/resources/**" location="/resources/" />
 	
 	<!-- support for html page loading-->
 <!-- 	<mvc:default-servlet-handler /> -->
