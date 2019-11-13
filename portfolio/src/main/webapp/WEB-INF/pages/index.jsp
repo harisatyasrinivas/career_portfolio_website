@@ -1,7 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 
 <html lang="en">
 <head>
@@ -27,92 +29,69 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
-<style>
-.navbar {
-	margin-bottom: 0;
-	border-radius: 0;
-}
 
-body {
-	font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-	font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	font-weight: 700;
-}
-
-footer.footer {
-	padding: 5px;
-	margin-top: 5px;
-	text-align: center;
-	margin-top: 5px;
-}
-</style>
-
+<link href="<spring:url value="/css/mystyle.css" />"
+	rel="stylesheet" type="text/css" />
+	
 </head>
 <body>
+	<nav class="navbar navbar-expand-sm navbar-light"> <a
+		class="navbar-brand" href="#"> <img alt="P"
+		src="<spring:url value="/images/Portfolio_Logo.jpg" />" width="30"
+		height="30" class="d-inline-block align-top"> Portfolio
+	</a>
 
-	<nav class="navbar navbar-expand-sm navbar-light">
-		<a class="navbar-brand" href="#">
-		 <img src="${pageContext.request.contextPath}/resources/theme1/img/Portfolio_Logo.jpg" width="30" height="30"
-			class="d-inline-block align-top" alt="P"> Portfolio
-		</a>
+	<button type="button" class="navbar-toggler bg-light"
+		data-toggle="collapse" data-target="#nav">
+		<span class="navbar-toggler-icon"></span>
+	</button>
 
-		<button type="button" class="navbar-toggler bg-light"
-			data-toggle="collapse" data-target="#nav">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse justify-content-between" id="nav">
-			<ul class="nav navbar-nav">
-				<li class="nav-link text-light font-weight-bold px-3"><a
-					class="nav-link nav-link active" href="#">Home</a></li>
-				<li class="nav-link text-light font-weight-bold px-3"><a
-					class="nav-link" href="#">Experience</a></li>
-				<li class="nav-link text-light font-weight-bold px-3"><a
-					class="nav-link" href="#">Skills</a></li>
-				<li class="nav-link text-light font-weight-bold px-3"><a
-					class="nav-link" href="education/info?id=100">Education</a></li>
-				<li class="nav-link text-light font-weight-bold px-3"><a
-					class="nav-link" href="contact/info?id=100">Contact</a></li>
-			</ul>
-		</div>
+	<div class="collapse navbar-collapse justify-content-between" id="nav">
+		<ul class="nav navbar-nav">
+			<li class="nav-link text-light font-weight-bold px-3"><a
+				class="nav-link nav-link active" href="#">Home</a></li>
+			<li class="nav-link text-light font-weight-bold px-3"><a
+				class="nav-link" href="#">Experience</a></li>
+			<li class="nav-link text-light font-weight-bold px-3"><a
+				class="nav-link" href="#">Skills</a></li>
+			<li class="nav-link text-light font-weight-bold px-3"><a
+				class="nav-link" href="education/info?id=100">Education</a></li>
+			<li class="nav-link text-light font-weight-bold px-3"><a
+				class="nav-link" href="contact/info?id=100">Contact</a></li>
+		</ul>
+	</div>
 	</nav>
 
-	<section>
-		<header class="text-black text-center">
-			<div class="jumbotron text-center">
-				<h1>HARI SATYA SRINIVAS DASARI</h1>
-				<p>About : Actively looking for Full Time Opportunity ||
-					Graduated from UOttawa with 2.4 Year experience as Software
-					Engineer</p>
-			</div>
-		</header>
-	</section>
+	<section> <header class="text-black text-center">
+	<div class="jumbotron text-center">
+		<h1>HARI SATYA SRINIVAS DASARI</h1>
+		<p>About : Actively looking for Full Time Opportunity || Graduated
+			from UOttawa with 2.4 Year experience as Software Engineer</p>
+	</div>
+	</header> </section>
 
 	<section>
-		<div class="container">
-			<h3>Summary of Experience</h3>
-			<p>Lorem Ipsum is simply dummy text of the printing and
-				typesetting industry. Lorem Ipsum has been the industry's standard
-				dummy text ever since the 1500s, when an unknown printer took a
-				galley of type and scrambled it to make a type specimen book. It has
-				survived not only five centuries, but also the leap into electronic
-				typesetting, remaining essentially unchanged. It was popularised in
-				the 1960s with the release of Letraset sheets containing Lorem Ipsum
-				passages, and more recently with desktop publishing software like
-				Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is
-				simply dummy text of the printing and typesetting industry. Lorem
-				Ipsum has been the industry's standard dummy text ever since the
-				1500s, when an unknown printer took a galley of type and scrambled
-				it to make a type specimen book. It has survived not only five
-				centuries, but also the leap into electronic typesetting, remaining
-				essentially unchanged. It was popularised in the 1960s with the
-				release of Letraset sheets containing Lorem Ipsum passages, and more
-				recently with desktop publishing software like Aldus PageMaker
-				including versions of Lorem Ipsum.</p>
-		</div>
+	<div class="container">
+		<h3>Summary of Experience</h3>
+		<p>Lorem Ipsum is simply dummy text of the printing and
+			typesetting industry. Lorem Ipsum has been the industry's standard
+			dummy text ever since the 1500s, when an unknown printer took a
+			galley of type and scrambled it to make a type specimen book. It has
+			survived not only five centuries, but also the leap into electronic
+			typesetting, remaining essentially unchanged. It was popularised in
+			the 1960s with the release of Letraset sheets containing Lorem Ipsum
+			passages, and more recently with desktop publishing software like
+			Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is
+			simply dummy text of the printing and typesetting industry. Lorem
+			Ipsum has been the industry's standard dummy text ever since the
+			1500s, when an unknown printer took a galley of type and scrambled it
+			to make a type specimen book. It has survived not only five
+			centuries, but also the leap into electronic typesetting, remaining
+			essentially unchanged. It was popularised in the 1960s with the
+			release of Letraset sheets containing Lorem Ipsum passages, and more
+			recently with desktop publishing software like Aldus PageMaker
+			including versions of Lorem Ipsum.</p>
+	</div>
 	</section>
 
 	<div class="container bg-3 ">
@@ -166,9 +145,9 @@ footer.footer {
 
 
 	<footer class="footer">
-		<div class="container">
-			<p>Portfolio Design, Copyright &copy; 2019</p>
-		</div>
+	<div class="container">
+		<p>Portfolio Design, Copyright &copy; 2019</p>
+	</div>
 	</footer>
 
 </body>

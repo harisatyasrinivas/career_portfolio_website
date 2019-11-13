@@ -1,12 +1,12 @@
 package com.satya.career.portfolio.dao;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.satya.career.portfolio.models.Project;
-import com.satya.career.portfolio.models.Skill;
 
 @Repository
 public class ProjectDaoImpl implements ProjectDao {
@@ -20,6 +20,11 @@ public class ProjectDaoImpl implements ProjectDao {
 		Project project = sessionFactory.getCurrentSession().get(Project.class, id);
 		return project;
 
+	}
+
+	@Override
+	public List<Project> getProjectsList() {
+		return sessionFactory.getCurrentSession().createQuery("from Project").getResultList();
 	}
 
 }

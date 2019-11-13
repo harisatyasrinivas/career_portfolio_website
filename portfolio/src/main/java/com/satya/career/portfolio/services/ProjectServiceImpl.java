@@ -1,5 +1,7 @@
 package com.satya.career.portfolio.services;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,12 @@ public class ProjectServiceImpl implements ProjectService{
 	@Transactional
 	public Project getProjects(long id) {
 		return projectDao.getProjects(id);
+	}
+
+	@Override
+	@Transactional
+	public List<Project> getProjectsList() {
+		return projectDao.getProjectsList();
 	}
 
 }

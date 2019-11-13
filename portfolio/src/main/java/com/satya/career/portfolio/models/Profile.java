@@ -1,6 +1,5 @@
 package com.satya.career.portfolio.models;
 
-import java.sql.Blob;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -13,6 +12,10 @@ import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "PROFILE")
@@ -23,25 +26,32 @@ public class Profile {
 	@Column(name = "PROFILE_ID", updatable = false, nullable = false)
 	private long id;
 
-	@Column(name = "PROFILE_PIC")
-	private Blob profilePic;
-
+	@NotEmpty(message = "Please provide your First Name")
 	@Column(name = "FIRST_NAME", nullable = false)
 	private String firstName;
 
+	@NotEmpty(message = "Please provide your Last Name")
 	@Column(name = "LAST_NAME", nullable = false)
 	private String lastName;
 
+	
+	@Email(message="Please provide a valid email address")
+	@Pattern(regexp=".+@.+\\..+", message="Please provide a valid email address")
 	@Column(name = "EMAIL", unique = true, nullable = false)
 	private String email;
 
+	@NotNull
+	@NotEmpty(message = "Kindly enter 10 digit Mobile Number")
+	@Pattern(regexp="(^$|[0-9]{10})",message="Kindly re-enter 10 digit Mobile Number")
 	@Column(name = "MOBILE", unique = true, nullable = false, length = 10)
 	private String mobileNumber;
 
+	@NotEmpty(message = "kindly provide your current employment status")
 	@Lob
 	@Column(name = "STATUS")
 	private String status;
 
+	@NotEmpty(message = "kindly provide your work summary")
 	@Lob
 	@Column(name = "SUMMARY")
 	private String summary;
@@ -66,13 +76,6 @@ public class Profile {
 		this.id = id;
 	}
 
-	public Blob getProfilePic() {
-		return profilePic;
-	}
-
-	public void setProfilePic(Blob profilePic) {
-		this.profilePic = profilePic;
-	}
 
 	public String getFirstName() {
 		return firstName;

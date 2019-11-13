@@ -27,10 +27,11 @@
 	<mvc:annotation-driven />
 
 	<!-- Resource location to load JS, CSS, Images etc -->
-	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/css/**" location="/WEB-INF/theme1/css/" />
+	<mvc:resources mapping="/images/**" location="/WEB-INF/images/" />
 	
 	<!-- support for html page loading-->
-<!-- 	<mvc:default-servlet-handler /> -->
+	<mvc:default-servlet-handler />
 
 	<!-- View Resolver Looks for HTML pages based on names in the below specified 
 		folder -->

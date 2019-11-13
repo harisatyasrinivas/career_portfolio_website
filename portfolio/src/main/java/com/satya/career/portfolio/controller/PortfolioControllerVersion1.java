@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.satya.career.portfolio.models.Education;
 import com.satya.career.portfolio.models.Profile;
+import com.satya.career.portfolio.models.Project;
 import com.satya.career.portfolio.models.Skill;
 import com.satya.career.portfolio.models.WorkExp;
 import com.satya.career.portfolio.services.AddressService;
@@ -23,7 +24,7 @@ import com.satya.career.portfolio.services.SkillService;
 import com.satya.career.portfolio.services.WorkExpService;
 
 @Controller
-@RequestMapping("/v1/profile/")
+@RequestMapping("/")
 public class PortfolioControllerVersion1 {
 
 	@Autowired
@@ -57,16 +58,16 @@ public class PortfolioControllerVersion1 {
 		long profileId = Integer.parseInt(request.getParameter("id"));
 		Profile profile = profileService.getProfile(profileId);
 		Education edu = educationService.getEducationProfile(profileId);
-		WorkExp workExp = workExpService.getWorkExp(profileId);
-		List<Skill> skillslist =skillService.getSkill();
+		List<WorkExp> workExpList = workExpService.getWorkExpList();
+		List<Project> projectList = projectService.getProjectsList();
+		List<Skill> skillsList =skillService.getSkill();
 		ModelAndView model = new ModelAndView();
 		model.addObject("Profile",profile);
 		model.addObject("Education",edu);
-		model.addObject("WorkExp",workExp);
-		model.addObject("SkillsList",skillslist);
-		model.setViewName("profile");
+		model.addObject("WorkExpList",workExpList);
+		model.addObject("ProjectList",projectList);
+		model.addObject("SkillsList",skillsList);
+		model.setViewName("home");
 		return model;
 		}
-	
-
-}
+	}

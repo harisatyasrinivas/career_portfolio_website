@@ -1,5 +1,7 @@
 package com.satya.career.portfolio.services;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,7 @@ import com.satya.career.portfolio.models.WorkExp;
 @Service
 @Transactional
 public class WorkExpServiceImpl implements WorkExpService {
-	
+
 	@Autowired
 	private WorkExpDao workExpDao;
 
@@ -19,6 +21,12 @@ public class WorkExpServiceImpl implements WorkExpService {
 	@Transactional
 	public WorkExp getWorkExp(long id) {
 		return workExpDao.getWorkExp(id);
+	}
+
+	@Override
+	@Transactional
+	public List<WorkExp> getWorkExpList() {
+		return workExpDao.getWorkExpList();
 	}
 
 }
