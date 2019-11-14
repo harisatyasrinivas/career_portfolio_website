@@ -27,4 +27,16 @@ public class ProjectDaoImpl implements ProjectDao {
 		return sessionFactory.getCurrentSession().createQuery("from Project").getResultList();
 	}
 
+	@Override
+	public void createProject(Project project) {
+		sessionFactory.getCurrentSession().saveOrUpdate(project);
+		
+	}
+
+	@Override
+	public Project updateProject(Project project) {
+		sessionFactory.getCurrentSession().update(project);
+		return project;
+	}
+
 }

@@ -9,5 +9,7 @@ public interface WorkExpService {
 	
 	public WorkExp getWorkExp(long id);
 	public List<WorkExp> getWorkExpList();
+	public void createWorkExp(WorkExp workExp);
+	public WorkExp updateWorkExp(WorkExp workExp);
 
 }

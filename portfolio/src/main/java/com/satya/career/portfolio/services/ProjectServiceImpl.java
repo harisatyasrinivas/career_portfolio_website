@@ -29,4 +29,17 @@ public class ProjectServiceImpl implements ProjectService{
 		return projectDao.getProjectsList();
 	}
 
+	@Override
+	@Transactional
+	public void createProject(Project project) {
+		projectDao.createProject(project);
+		
+	}
+
+	@Override
+	@Transactional
+	public Project updateProject(Project project) {
+		return projectDao.updateProject(project);
+	}
+
 }

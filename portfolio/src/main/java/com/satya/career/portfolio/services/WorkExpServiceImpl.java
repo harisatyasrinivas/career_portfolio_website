@@ -29,4 +29,17 @@ public class WorkExpServiceImpl implements WorkExpService {
 		return workExpDao.getWorkExpList();
 	}
 
+	@Override
+	@Transactional
+	public void createWorkExp(WorkExp workExp) {
+		workExpDao.createWorkExp(workExp);
+		
+	}
+
+	@Override
+	@Transactional
+	public WorkExp updateWorkExp(WorkExp workExp) {
+		return workExpDao.updateWorkExp(workExp);
+	}
+
 }

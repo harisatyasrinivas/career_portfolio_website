@@ -49,10 +49,6 @@ public class ProfWebsites {
 	public void setProfile(Profile profile) {
 		this.profile = profile;
 	}
-	@Override
-	public String toString() {
-		return "ProfWebsites [id=" + id + ", webName=" + webName + ", webUrl=" + webUrl + ", profile=" + profile + "]";
-	}
-	
+
 	
 }

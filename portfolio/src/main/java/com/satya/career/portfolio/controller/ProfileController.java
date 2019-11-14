@@ -22,15 +22,13 @@ public class ProfileController {
 	@Autowired
 	private ProfileService profileService;
 
-	private static final Logger logger = Logger.getLogger(ProfileController.class);
-
 	public ProfileController() {
 		System.out.println("ProfileController() started executing");
 	}
 
 	// read data from database
 	@RequestMapping(value = "/info", method = RequestMethod.GET)
-	public ModelAndView education(HttpServletRequest request) {
+	public ModelAndView profile(HttpServletRequest request) {
 		int profileId = Integer.parseInt(request.getParameter("id"));
 		Profile profile = profileService.getProfile(profileId);
 		ModelAndView model = new ModelAndView();
@@ -50,7 +48,6 @@ public class ProfileController {
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home(ModelAndView model) {
-		;
 		model.setViewName("index");
 		return model;
 	}

@@ -25,4 +25,16 @@ public class WorkExpDaoImpl implements WorkExpDao {
 
 	}
 
+	@Override
+	public void createWorkExp(WorkExp workExp) {
+		sessionFactory.getCurrentSession().saveOrUpdate(workExp);
+		
+	}
+
+	@Override
+	public WorkExp updateWorkExp(WorkExp workExp) {
+		sessionFactory.getCurrentSession().update(workExp);
+		return workExp;
+	}
+
 }

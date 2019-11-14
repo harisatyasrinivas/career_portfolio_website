@@ -62,7 +62,8 @@
 						<p class="card-text">
 							<img
 								src="https://img.icons8.com/color/30/000000/place-marker.png">
-							${Address.state} ${Address.province} </p>
+							${Address.state} ${Address.province}
+						</p>
 					</div>
 					<div class="col-sm-4">
 						<div class="card-body">
@@ -76,12 +77,11 @@
 									src="https://img.icons8.com/color/30/000000/client-company.png">Polaris
 								Consultancy and services
 							</p>
-								<a href="#"
-								target="_blank"> <img
+							<a href="#" target="_blank"> <img
 								src="https://img.icons8.com/color/30/000000/linkedin.png">
 							</a> <a href="https://github.com/harisatyasrinivas" target="_blank">
 								<img src="https://img.icons8.com/color/30/000000/github--v1.png">
-							</a>		
+							</a>
 						</div>
 					</div>
 				</div>
@@ -109,38 +109,19 @@
 
 
 		<br>
-
-		<div class="row text-center"">
-			<div class="col-sm-4">
-				<div class="card">
-					<div class="card-body">
-						<h5 class="card-title">Design</h5>
-						<p class="card-text">With supporting text below as a natural
-							lead-in to additional content.</p>
-						<a href="#" class="btn btn-primary">Skills</a>
+		<!-- Area of Expertise Section-->
+		<div class="row text-center">
+			<c:forEach var="expertise" items="${AreaOfExpertiseList}">
+				<div class="col-sm-4">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">${expertise.feild}</h5>
+							<p class="card-text">${expertise.feildDetails}</p>
+							<a href="#" class="btn btn-primary">Skills</a>
+						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="card">
-					<div class="card-body">
-						<h5 class="card-title">Development</h5>
-						<p class="card-text">With supporting text below as a natural
-							lead-in to additional content.</p>
-						<a href="#" class="btn btn-primary">Skills</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-4">
-				<div class="card">
-					<div class="card-body">
-						<h5 class="card-title">Support</h5>
-						<p class="card-text">With supporting text below as a natural
-							lead-in to additional content.</p>
-						<a href="#" class="btn btn-primary">Skills</a>
-					</div>
-				</div>
-			</div>
+			</c:forEach>
 		</div>
 
 
@@ -152,22 +133,6 @@
 			<div class="container-fluid bg-3 text-center">
 				<div class="row">
 					<c:forEach var="skill" items="${SkillsList}">
-						<div class="col-sm-1">
-							<button type="button" class="btn btn-primary">Primary</button>
-						</div>
-						<div class="col-sm-1">
-							<button type="button" class="btn btn-secondary">Secondary</button>
-						</div>
-						<div class="col-sm-1">
-							<button type="button" class="btn btn-success">Success</button>
-						</div>
-						<div class="col-sm-1">
-							<button type="button" class="btn btn-danger">Danger</button>
-						</div>
-						<button type="button" class="btn btn-warning">Warning</button>
-						<div class="col-sm-1">
-							<button type="button" class="btn btn-info">Info</button>
-						</div>
 						<div class="col-sm-1">
 							<a href="#" class="btn btn-primary">${skill.skill}</a>
 							<p>${skill.skillExperience}Years</p>
@@ -194,7 +159,7 @@
 										<p>
 											<i>${project.desc}</i>
 										</p>
-										<p class="captions">${project.tasks}</p>
+										<p class="captions white-space-pre">${project.tasks}</p>
 									</li>
 								</ul>
 							</c:forEach>
@@ -211,7 +176,8 @@
 						<div class="card-body">
 							<h5 class="card-title">${education.degree}</h5>
 							<p class="card-text">${education.school}</p>
-							<a class="btn btn-primary">GPA :${education.myGpa} / ${education.totalGpa} </a>
+							<a class="btn btn-primary">GPA :${education.myGpa} /
+								${education.totalGpa} </a>
 						</div>
 					</div>
 				</div>

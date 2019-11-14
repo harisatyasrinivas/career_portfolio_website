@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.satya.career.portfolio.models.Address;
+import com.satya.career.portfolio.models.AreaOfExpertise;
 import com.satya.career.portfolio.models.Education;
-import com.satya.career.portfolio.models.ProfWebsites;
 import com.satya.career.portfolio.models.Profile;
 import com.satya.career.portfolio.models.Project;
 import com.satya.career.portfolio.models.Skill;
 import com.satya.career.portfolio.models.WorkExp;
 import com.satya.career.portfolio.services.AddressService;
+import com.satya.career.portfolio.services.AreaOfExpertiseService;
 import com.satya.career.portfolio.services.EducationService;
 import com.satya.career.portfolio.services.ProfWebsitesService;
 import com.satya.career.portfolio.services.ProfileService;
@@ -43,6 +44,9 @@ public class PortfolioControllerVersion1 {
 
 	@Autowired
 	private WorkExpService workExpService;
+	
+	@Autowired
+	private AreaOfExpertiseService areaOfExpertiseService;
 
 	@Autowired
 	private ProjectService projectService;
@@ -58,10 +62,13 @@ public class PortfolioControllerVersion1 {
 	@RequestMapping(value = "/info",method = RequestMethod.GET)
 	public ModelAndView education(HttpServletRequest request) {		
 		long profileId = Integer.parseInt(request.getParameter("id"));
+		System.out.println("******************************");
+		System.out.println(profileId);
 		Profile profile = profileService.getProfile(profileId);
 		List<Education> edu = educationService.getEducationList();
 		Address address = addressService.getAddress(profileId);
 		List<WorkExp> workExpList = workExpService.getWorkExpList();
+		List<AreaOfExpertise> areaOfExpertiseList = areaOfExpertiseService.getAreaOfExpertiseList();
 		List<Project> projectList = projectService.getProjectsList();
 		List<Skill> skillsList =skillService.getSkill();
 		ModelAndView model = new ModelAndView();
@@ -69,6 +76,7 @@ public class PortfolioControllerVersion1 {
 		model.addObject("Address",address);
 		model.addObject("EducationList",edu);
 		model.addObject("WorkExpList",workExpList);
+		model.addObject("AreaOfExpertiseList",areaOfExpertiseList);
 		model.addObject("ProjectList",projectList);
 		model.addObject("SkillsList",skillsList);
 		model.setViewName("home");

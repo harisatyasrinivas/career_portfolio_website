@@ -25,8 +25,6 @@ public class ProfileServiceImpl implements ProfileService {
 	@Transactional
 	public Profile getProfile(long id) {
 		Profile profile = profileDao.getProfile(id);
-		String storyFormat=profile.getStory().replaceAll("/n","<br/>");
-		profile.setStory(storyFormat);
 		return profile;
 	}
 
