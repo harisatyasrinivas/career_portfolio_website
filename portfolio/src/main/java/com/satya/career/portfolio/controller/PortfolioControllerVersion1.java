@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.satya.career.portfolio.models.Address;
 import com.satya.career.portfolio.models.Education;
+import com.satya.career.portfolio.models.ProfWebsites;
 import com.satya.career.portfolio.models.Profile;
 import com.satya.career.portfolio.models.Project;
 import com.satya.career.portfolio.models.Skill;
@@ -57,13 +59,15 @@ public class PortfolioControllerVersion1 {
 	public ModelAndView education(HttpServletRequest request) {		
 		long profileId = Integer.parseInt(request.getParameter("id"));
 		Profile profile = profileService.getProfile(profileId);
-		Education edu = educationService.getEducationProfile(profileId);
+		List<Education> edu = educationService.getEducationList();
+		Address address = addressService.getAddress(profileId);
 		List<WorkExp> workExpList = workExpService.getWorkExpList();
 		List<Project> projectList = projectService.getProjectsList();
 		List<Skill> skillsList =skillService.getSkill();
 		ModelAndView model = new ModelAndView();
 		model.addObject("Profile",profile);
-		model.addObject("Education",edu);
+		model.addObject("Address",address);
+		model.addObject("EducationList",edu);
 		model.addObject("WorkExpList",workExpList);
 		model.addObject("ProjectList",projectList);
 		model.addObject("SkillsList",skillsList);

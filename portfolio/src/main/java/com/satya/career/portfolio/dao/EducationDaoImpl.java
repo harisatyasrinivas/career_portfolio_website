@@ -1,5 +1,7 @@
 package com.satya.career.portfolio.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +46,11 @@ public class EducationDaoImpl implements EducationDao {
 		if (education != null) {
 			this.sessionFactory.getCurrentSession().delete(education);
 		}
+	}
+
+	@Override
+	public List<Education> getEducationList() {
+		return sessionFactory.getCurrentSession().createQuery("from Education").getResultList();
 	}
 
 }

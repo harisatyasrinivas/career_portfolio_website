@@ -70,7 +70,7 @@ public class ProfileController {
 				System.out.println(profile.getId());
 				profileService.updateProfile(profile);
 			}
-			return new ModelAndView("redirect:/profile/info?" + profile.getId());
+			return new ModelAndView("redirect:/profile/info?"+profile.getId());
 		}
 
 	}

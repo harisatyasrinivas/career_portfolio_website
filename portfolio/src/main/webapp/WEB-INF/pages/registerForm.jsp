@@ -51,7 +51,7 @@ footer.footer {
 }
 
 .formerror {
-	color:red;
+	color: red;
 }
 </style>
 
@@ -64,16 +64,16 @@ footer.footer {
 			<!-- 		Responsive form for first, last names , email and mobile number fields -->
 			<div class="form-row">
 				<div class="form-group col-md-6">
-					<label>First Name</label>
-					<form:input path="firstName" class="form-control"
-						placeholder="First Name" />
-					<form:errors path="firstName" class="formerror" />
+					<label>Full Name</label>
+					<form:input path="fullName" class="form-control"
+						placeholder="Full Name" />
+					<form:errors path="fullName" class="formerror" />
 				</div>
 				<div class="form-group col-md-6">
-					<label>Last Name</label>
-					<form:input path="lastName" class="form-control"
-						placeholder="Last Name" />
-					<form:errors path="lastName" class="formerror" />
+					<label>Nick Name</label>
+					<form:input path="nickName" class="form-control"
+						placeholder="Nick Name" />
+					<form:errors path="nickName" class="formerror" />
 				</div>
 			</div>
 			<div class="form-row">
@@ -101,6 +101,13 @@ footer.footer {
 					cols="30"
 					placeholder="Work Summary (few words about your role and feild)" />
 				<form:errors path="summary" class="formerror" />
+			</div>
+			<div class="textarea">
+				<label>My Story</label>
+				<form:textarea path="story" class="form-control" rows="6"
+					cols="30"
+					placeholder="Your Story as a software developer" />
+				<form:errors path="story" class="formerror" />
 			</div>
 			<input type="submit" value="Save">
 		</form:form>

@@ -42,8 +42,6 @@ public class Project {
 	@Lob
 	@Column(name = "PROJECT_TASKS")
 	private String tasks;
-	@OneToMany(mappedBy = "project",cascade = CascadeType.ALL,orphanRemoval = true)
-	private List<Skill> skills;
 	@ManyToOne
 	@JoinColumn(name = "WORKEXP_ID")
 	private WorkExp workExp;
@@ -83,24 +81,11 @@ public class Project {
 	public void setTasks(String tasks) {
 		this.tasks = tasks;
 	}
-	public List<Skill> getSkills() {
-		return skills;
-	}
-	public void setSkills(List<Skill> skills) {
-		this.skills = skills;
-	}
 	public WorkExp getWorkExp() {
 		return workExp;
 	}
 	public void setWorkExp(WorkExp workExp) {
 		this.workExp = workExp;
 	}
-	@Override
-	public String toString() {
-		return "Project [id=" + id + ", projectName=" + projectName + ", fromDate=" + fromDate + ", ToDate=" + ToDate
-				+ ", desc=" + desc + ", tasks=" + tasks + ", skills=" + skills + ", workExp=" + workExp + "]";
-	}
-	
-	
-	
+		
 }

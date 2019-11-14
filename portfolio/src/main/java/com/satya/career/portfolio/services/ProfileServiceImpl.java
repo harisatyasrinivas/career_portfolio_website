@@ -19,13 +19,15 @@ public class ProfileServiceImpl implements ProfileService {
 	@Transactional
 	public void createProfile(Profile profile) {
 		profileDao.createProfile(profile);
-
 	}
 
 	@Override
 	@Transactional
 	public Profile getProfile(long id) {
-		return profileDao.getProfile(id);
+		Profile profile = profileDao.getProfile(id);
+		String storyFormat=profile.getStory().replaceAll("/n","<br/>");
+		profile.setStory(storyFormat);
+		return profile;
 	}
 
 	@Override

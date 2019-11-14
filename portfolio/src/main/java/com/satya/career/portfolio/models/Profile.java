@@ -26,35 +26,35 @@ public class Profile {
 	@Column(name = "PROFILE_ID", updatable = false, nullable = false)
 	private long id;
 
-	@NotEmpty(message = "Please provide your First Name")
-	@Column(name = "FIRST_NAME", nullable = false)
-	private String firstName;
+	@NotEmpty(message = "Please provide your FULL Name")
+	@Column(name = "FULL_NAME", nullable = false)
+	private String fullName;
 
-	@NotEmpty(message = "Please provide your Last Name")
-	@Column(name = "LAST_NAME", nullable = false)
-	private String lastName;
+	@NotEmpty(message = "Please provide your NICK Name")
+	@Column(name = "NICK_NAME", nullable = false)
+	private String nickName;
 
-	
-	@Email(message="Please provide a valid email address")
-	@Pattern(regexp=".+@.+\\..+", message="Please provide a valid email address")
+	@Email(message = "Please provide a valid email address")
+	@Pattern(regexp = ".+@.+\\..+", message = "Please provide a valid email address")
 	@Column(name = "EMAIL", unique = true, nullable = false)
 	private String email;
 
-	@NotNull
-	@NotEmpty(message = "Kindly enter 10 digit Mobile Number")
-	@Pattern(regexp="(^$|[0-9]{10})",message="Kindly re-enter 10 digit Mobile Number")
-	@Column(name = "MOBILE", unique = true, nullable = false, length = 10)
+	
+	@Column(name = "MOBILE")
 	private String mobileNumber;
 
-	@NotEmpty(message = "kindly provide your current employment status")
-	@Lob
+	@NotEmpty(message = "kindly provide your current employment status (Max of 255 words)")
 	@Column(name = "STATUS")
 	private String status;
 
-	@NotEmpty(message = "kindly provide your work summary")
-	@Lob
+	@NotEmpty(message = "kindly provide your work summary (Max of 255 words)")
 	@Column(name = "SUMMARY")
 	private String summary;
+
+	@NotEmpty(message = "kindly provide your story")
+	@Lob
+	@Column(name = "STORY")
+	private String story;
 
 	@OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Education> education;
@@ -68,6 +68,9 @@ public class Profile {
 	@OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<WorkExp> workExp;
 
+	@OneToMany(mappedBy = "profile", cascade = CascadeType.ALL, orphanRemoval = true)
+	private List<AreaOfExpertise> areaOfExpertise;
+
 	public long getId() {
 		return id;
 	}
@@ -76,21 +79,28 @@ public class Profile {
 		this.id = id;
 	}
 
-
-	public String getFirstName() {
-		return firstName;
+	public String getFullName() {
+		return fullName;
 	}
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
-	public String getLastName() {
-		return lastName;
+	public String getNickName() {
+		return nickName;
 	}
 
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	public String getStory() {
+		return story;
+	}
+
+	public void setStory(String story) {
+		this.story = story;
 	}
 
 	public String getEmail() {
@@ -100,6 +110,7 @@ public class Profile {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 
 	public String getMobileNumber() {
 		return mobileNumber;
@@ -155,6 +166,14 @@ public class Profile {
 
 	public void setWorkExp(List<WorkExp> workExp) {
 		this.workExp = workExp;
+	}
+
+	public List<AreaOfExpertise> getAreaOfExpertise() {
+		return areaOfExpertise;
+	}
+
+	public void setAreaOfExpertise(List<AreaOfExpertise> areaOfExpertise) {
+		this.areaOfExpertise = areaOfExpertise;
 	}
 
 }

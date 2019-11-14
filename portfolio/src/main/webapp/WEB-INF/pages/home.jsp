@@ -20,16 +20,13 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <link href="<spring:url value="/css/mystyle.css" />" rel="stylesheet"
 	type="text/css" />
-
 </head>
-
-
 
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
 	<!-- 	Jumbotron for displaying Name , Role and Status -->
 	<section id="mynavbar"> <nav
 		class="navbar navbar-expand-sm navbar-light fixed-top"> <a
-		class="navbar-brand" href="#"> <img
+		class="navbar-brand"> <img
 		src="<spring:url value="/images/Portfolio_Logo.jpg" />" width="30"
 		height="30" class="d-inline-block align-top" alt="P">Portfolio
 	</a>
@@ -60,14 +57,15 @@
 			<div class="card-body">
 				<div class="row">
 					<div class="col-sm-8">
-						<h5 class="card-title">${Profile.firstName}
-							${Profile.lastName}</h5>
-						<p class="card-text">${Profile.status}</p>
-						<p class="card-text">Ottawa , Canada</p>
+						<h5 class="card-title">${Profile.fullName}</h5>
+						<p class="card-text">${Profile.summary}</p>
+						<p class="card-text">
+							<img
+								src="https://img.icons8.com/color/30/000000/place-marker.png">
+							${Address.state} ${Address.province} </p>
 					</div>
 					<div class="col-sm-4">
 						<div class="card-body">
-
 							<p class="card-text">
 								<img
 									src="https://img.icons8.com/color/30/000000/student-male--v2.png">
@@ -78,12 +76,12 @@
 									src="https://img.icons8.com/color/30/000000/client-company.png">Polaris
 								Consultancy and services
 							</p>
-							<a href="https://www.linkedin.com/in/hari-satya-srinivas-dasari/"
+								<a href="#"
 								target="_blank"> <img
 								src="https://img.icons8.com/color/30/000000/linkedin.png">
-							</a> <a href="https://github.com/harisatyasrinivas" target="_blank"> <img
-								src="https://img.icons8.com/color/30/000000/github--v1.png">
-							</a>
+							</a> <a href="https://github.com/harisatyasrinivas" target="_blank">
+								<img src="https://img.icons8.com/color/30/000000/github--v1.png">
+							</a>		
 						</div>
 					</div>
 				</div>
@@ -93,14 +91,15 @@
 
 		<!-- 	container for diplaying image and mystory -->
 		<div id="mystory" class=" row">
-			<div class="col-sm-8">
-				<h5 class="card-title">My Story</h5>
-				<blockquote class="blockquote text-right">
-					<p class="mb-0">Lorem ipsum dolor sit amet, consectetur
-						adipiscing elit. Integer posuere erat a ante.</p>
-					<footer class="blockquote-footer">Satya Dasari</footer>
+			<div class="col-sm-9">
+				<h5 class="card-title">"With a few lines of code, I can wish a
+					global change"</h5>
+				<blockquote class="blockquote">
+					<p class="white-space-pre">${Profile.story }</p>
+					<footer class="blockquote-footer text-right">${Profile.nickName}</footer>
 				</blockquote>
 			</div>
+
 			<div class="col-sm-3">
 				<div class="circular--portrait float-right">
 					<img src="<spring:url value="/images/MyProfilePic.jpg" />" />
@@ -177,63 +176,109 @@
 				</div>
 			</div>
 		</div>
+
+		<div id="Experience" class="card">
+			<div class="card-body">
+				<h5 class="card-title">Work Experience</h5>
+				<c:forEach var="work" items="${WorkExpList}">
+					<ul class="timeline">
+						<li>
+							<p class="float-left">${work.toDate}</p> <br> <br>
+							<h6>${work.company}</h6>
+							<p class="captions">${work.role}</p> <c:forEach var="project"
+								items="${ProjectList}">
+								<ul>
+									<li>
+										<p class="float-right">${project.toDate}</p>
+										<h6>${project.projectName}</h6>
+										<p>
+											<i>${project.desc}</i>
+										</p>
+										<p class="captions">${project.tasks}</p>
+									</li>
+								</ul>
+							</c:forEach>
+						</li>
+					</ul>
+				</c:forEach>
+			</div>
+		</div>
+		<hr>
+		<div id="Education" class="row text-center">
+			<c:forEach var="education" items="${EducationList}">
+				<div class="col-sm-6">
+					<div class="card">
+						<div class="card-body">
+							<h5 class="card-title">${education.degree}</h5>
+							<p class="card-text">${education.school}</p>
+							<a class="btn btn-primary">GPA :${education.myGpa} / ${education.totalGpa} </a>
+						</div>
+					</div>
+				</div>
+			</c:forEach>
+		</div>
 </body>
 
-<div id="Experience" class="card">
-	<div class="card-body">
-		<h5 class="card-title">Work Experience</h5>
-		<c:forEach var="work" items="${WorkExpList}">
-			<ul class="timeline">
-				<li>
-					<p class="float-left">${work.toDate}</p> <br> <br>
-					<h6>${work.company}</h6>
-					<p class="captions">${work.role}</p> <c:forEach var="project"
-						items="${ProjectList}">
-						<ul>
-							<li>
-								<p class="float-right">${project.toDate}</p>
-								<h6>${project.projectName}</h6>
-								<p>
-									<i>${project.desc}</i>
-								</p>
-								<p class="captions">${project.tasks}</p>
-							</li>
-						</ul>
-					</c:forEach>
-				</li>
-			</ul>
-		</c:forEach>
-	</div>
-</div>
-<br>
-<div id="Education" class="row text-center"">
-	<div class="col-sm-6">
-		<div class="card">
-			<div class="card-body">
-				<h5 class="card-title">University of Ottawa</h5>
-				<p class="card-text">With supporting text below as a natural
-					lead-in to additional content.</p>
-				<a href="#" class="btn btn-primary">Skills</a>
-			</div>
-		</div>
-	</div>
-	<div class="col-sm-6">
-		<div class="card">
-			<div class="card-body">
-				<h5 class="card-title">GMR Insitute of technology</h5>
-				<p class="card-text">With supporting text below as a natural
-					lead-in to additional content.</p>
-				<a href="#" class="btn btn-primary">Skills</a>
-			</div>
-		</div>
-	</div>
-</div>
-
 <br>
 
-<footer class="footer">
+<footer class="page-footer" id="Contact">
+<div class="connect-panel">
+	<div class="col-md-6">
+		<h6>Get connected to share the opportunity</h6>
+	</div>
+</div>
+<!-- contact -->
+<div class="contact-panel">
+	<div class="row">
+		<div class="col-sm-4">
+			<h6 class=" font-weight-bold">Portfolio</h6>
+		</div>
+		<div class="col-sm-4">
+			<table>
+				<thead>
+					<h6 class="text-uppercase font-weight-bold">Connect</h6>
+				</thead>
+				<tr>
+					<td><a
+						href="https://www.linkedin.com/in/hari-satya-srinivas-dasari/"
+						target="_blank"> <img
+							src="https://img.icons8.com/color/30/000000/linkedin.png"></a>Linkedin</td>
+				</tr>
+				<tr>
+					<td><a href="https://github.com/harisatyasrinivas"
+						target="_blank"> <img
+							src="https://img.icons8.com/color/30/000000/github--v1.png">
+					</a>Github</td>
+				</tr>
+			</table>
+		</div>
+		<div class="col-sm-4">
+			<table>
+				<thead>
+					<h6 class="text-uppercase font-weight-bold">Contact</h6>
+				</thead>
+				<tr>
+					<td><img
+						src="https://img.icons8.com/color/30/000000/gmail.png">
+						harisatyasrinivas@gmail.com</td>
+				</tr>
+				<tr>
+					<td><img
+						src="https://img.icons8.com/color/30/000000/phone.png"> +1
+						(514)-292-7212</td>
+				</tr>
+				<tr>
+					<td><img
+						src="https://img.icons8.com/color/30/000000/order-delivered.png">Ottawa
+						Canada</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<hr>
 <div class="socialbar">
-	<div class="container">
+	<div class=" footer-copyright text-center">
 		<p>Portfolio Design, Copyright &copy; 2019</p>
 	</div>
 </div>

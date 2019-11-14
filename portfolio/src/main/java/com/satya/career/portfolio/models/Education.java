@@ -4,7 +4,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,8 +12,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "education")
@@ -30,12 +27,14 @@ public class Education {
 	private String school;		
 	@Column(name = "FROM_DATE", nullable = false)
 	@Temporal(TemporalType.DATE)
-	private Date fromDate;
-	
+	private Date fromDate;	
 	@Column(name = "TO_DATE", nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date toDate;
-	
+	@Column(name="MY_GPA")
+	private float myGpa;
+	@Column(name="Total_GPA")
+	private int totalGpa;
 	@Column(name = "COUNTRY", nullable = false)
 	private String country;
 	@ManyToOne
@@ -83,10 +82,17 @@ public class Education {
 	public void setProfile(Profile profile) {
 		this.profile = profile;
 	}
-	@Override
-	public String toString() {
-		return "Education [id=" + id + ", degree=" + degree + ", school=" + school + ", fromDate=" + fromDate
-				+ ", toDate=" + toDate + ", country=" + country + ", profile=" + profile + "]";
+	public float getMyGpa() {
+		return myGpa;
+	}
+	public void setMyGpa(float myGpa) {
+		this.myGpa = myGpa;
+	}
+	public int getTotalGpa() {
+		return totalGpa;
+	}
+	public void setTotalGpa(int totalGpa) {
+		this.totalGpa = totalGpa;
 	}
 	
 	

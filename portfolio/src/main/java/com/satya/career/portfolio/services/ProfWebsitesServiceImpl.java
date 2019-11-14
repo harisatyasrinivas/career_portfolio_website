@@ -1,5 +1,7 @@
 package com.satya.career.portfolio.services;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
@@ -17,6 +19,12 @@ public class ProfWebsitesServiceImpl implements ProfWebsitesService {
 	@Transactional
 	public ProfWebsites getProfWebsites(long id) {
 		return profWebsitesDao.getProfWebsites(id);
+	}
+
+	@Override
+	@Transactional
+	public List<ProfWebsites> getProfWebsitesList() {
+		return profWebsitesDao.getProfWebsitesList();
 	}
 
 }

@@ -2,6 +2,29 @@ create DATABASE portfolioweb;
 use portfolioweb;
 
 ##########################################################################
+INSERT INTO `portfolioweb`.`profile`
+(`PROFILE_ID`,
+`EMAIL`,
+`FULL_NAME`,
+`MOBILE`,
+`NICK_NAME`,
+`STATUS`,
+`STORY`,
+`SUMMARY`)
+VALUES
+(100,
+"harisatyasrinivas@gmail.com",
+"Hari Satya Srinivas Dasari",
+5142927212,
+"Satya Dasari",
+"Actively looking for Full Time Job Opportunity",
+"I am Satya Dasari, a Java developer and Application Support specialist graduated from the University of Ottawa. my areas of expertise include Development and Support of Java Enterprise Applications. 
+I gathered my first experience working for Polaris as an associate software developer for Citi Private Bank. The work experience helped me to attain good knowledge in client reporting, banking & lending domains.
+I enjoy solving a problem programmatically with elegant, efficient and easy to maintain code. Currently working as a tutor and building a multilingual dynamic web portfolio(Version-2) project which allows users to create a profile and publish in few clicks (check it on my Github).
+My long-term goal is to develop applications that help local communities to build non-profit local community groups for raising, solving and escalating typical community issues to the concerned authorities for building sustainable life and better tomorrow.",
+"Graduate student from University of Ottawa with 2.5 Year Prior experience as software Engineer at Polaris Consulting and Services Limited, India.");
+
+
 
 INSERT INTO `portfolioweb`.`profile`
 (`PROFILE_ID`,
@@ -101,9 +124,9 @@ VALUES
 INSERT INTO `portfolioweb`.`project`
 (`PROJECT_ID`,
 `TO_DATE`,
-`PROJECT_DESC`,
+`PROJECT_DESC`,project
 `FROM_DATE`,
-`PROJECT_NAME`,
+`PROJECT_NAME`,work_exp
 `PROJECT_TASKS`,
 `WORKEXP_ID`)
 VALUES

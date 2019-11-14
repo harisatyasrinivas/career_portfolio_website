@@ -2,7 +2,6 @@ package com.satya.career.portfolio.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,11 +19,13 @@ public class Skill {
 	private long id;
 	@Column(name = "SKILL")
 	private String skill;
+	@Column(name = "SKILL_Feild")
+	private String skillFeild;
 	@Column(name = "SKILL_EXP")
 	private int skillExperience;
 	@ManyToOne()
-	@JoinColumn(name = "PROJECT_ID")
-	private Project project;
+	@JoinColumn(name = "EXPERTISE_ID")
+	private AreaOfExpertise areaOfExpertise;
 
 	public long getId() {
 		return id;
@@ -50,13 +51,20 @@ public class Skill {
 		this.skillExperience = skillExperience;
 	}
 
-	public Project getProject() {
-		return project;
+	public String getSkillFeild() {
+		return skillFeild;
 	}
 
-	public void setProject(Project project) {
-		this.project = project;
+	public void setSkillFeild(String skillFeild) {
+		this.skillFeild = skillFeild;
 	}
 
+	public AreaOfExpertise getAreaOfExpertise() {
+		return areaOfExpertise;
+	}
+
+	public void setAreaOfExpertise(AreaOfExpertise areaOfExpertise) {
+		this.areaOfExpertise = areaOfExpertise;
+	}
 	
 }

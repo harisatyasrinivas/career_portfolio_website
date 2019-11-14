@@ -1,5 +1,7 @@
 package com.satya.career.portfolio.services;
 
+import java.util.List;
+
 import com.satya.career.portfolio.models.Education;
 
 public interface EducationService {
@@ -15,5 +17,7 @@ public interface EducationService {
 
 	// delete profile
 	public void deleteEducationProfile(long id);
+	
+	public List<Education> getEducationList();
 
 }

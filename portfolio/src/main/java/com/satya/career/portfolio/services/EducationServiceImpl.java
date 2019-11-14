@@ -1,5 +1,7 @@
 package com.satya.career.portfolio.services;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +41,12 @@ public class EducationServiceImpl implements EducationService{
 	public void deleteEducationProfile(long id) {
 		educationDao.deleteEducationProfile(id);
 		
+	}
+
+	@Override
+	@Transactional
+	public List<Education> getEducationList() {
+		return educationDao.getEducationList();
 	}
 
 }
