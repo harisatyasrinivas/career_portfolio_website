@@ -179,7 +179,7 @@
 				<version>2.0.0</version>
 				<configuration>
 					<deploy.projectId>portfolio</deploy.projectId>
-					<deploy.version>V1</deploy.version>
+					<deploy.version>v1</deploy.version>
 				</configuration>
 			</plugin>
 		</plugins>
