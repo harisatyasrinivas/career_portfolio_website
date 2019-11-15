@@ -157,27 +157,31 @@
 	<build>
 		<finalName>portfolio</finalName>
 		<plugins>
-		
-		
-		<plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.1</version>
-                </plugin>
-                
-<!-- 			<plugin> -->
-<!-- 				<artifactId>maven-compiler-plugin</artifactId> -->
-<!-- 				<version>3.5.1</version> -->
-<!-- 				<configuration> -->
-<!-- 					<source>${java.version}</source> -->
-<!-- 					<target>${java.version}</target> -->
-<!-- 				</configuration> -->
-<!-- 			</plugin> -->
-				<plugin>
-					<groupId>com.google.cloud.tools</groupId>
-					<artifactId>appengine-maven-plugin</artifactId>
-					<version>2.0.0</version>
-				</plugin>
-			</plugins>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+			</plugin>
+
+			<!-- <plugin> -->
+			<!-- <artifactId>maven-compiler-plugin</artifactId> -->
+			<!-- <version>3.5.1</version> -->
+			<!-- <configuration> -->
+			<!-- <source>${java.version}</source> -->
+			<!-- <target>${java.version}</target> -->
+			<!-- </configuration> -->
+			<!-- </plugin> -->
+			<plugin>
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+				<version>2.0.0</version>
+				<configuration>
+					<deploy.projectId>portfolio</deploy.projectId>
+					<deploy.version>V1</deploy.version>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 </project>
